@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: boiler_plate_laravel
+    ports:
+      - "8000:8000"
+      - "3000:3000" 
+    volumes:
+      - ./:/var/www/html      
+    working_dir: /var/www/html
+    networks:
+      - laravel-network
+
+networks:
+  laravel-network:
+    driver: bridge
+
