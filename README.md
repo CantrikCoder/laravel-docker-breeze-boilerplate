@@ -74,4 +74,6 @@
     ```
 
 # Conclussion
-Your environment is now set up and ready for development. Happy coding!
+Your environment is now set up and ready for development.
+
+***JANGAN MALAS MALAS YAAA***
