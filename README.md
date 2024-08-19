@@ -14,10 +14,10 @@
     Access MySQL through the CLI and execute the following commands:
     ```bash
     CREATE USER 'user-docker'@'<hostdocker0>' IDENTIFIED BY 'docker-up';
-    GRANT ALL PRIVILEGES ON *.* TO 'user-docker'@'<hostdocker0>';
+    GRANT ALL PRIVILEGES ON *.* TO 'user-docker'@'%';
     FLUSH PRIVILEGES;
     ```
-    Replace ```<hostdocker0>``` with the actual IP address you found earlier.
+    it will create new user with username user-docker and host depend on docker0 IP that can access your local host db  
 
 ## Step 2: Update the MySQL Configuration
 
@@ -28,6 +28,14 @@
 
 1.  Configure .env:
     Update your Laravel project's .env file to use the new database user credentials.
+    ```env
+    DB_CONNECTION=mysql
+    DB_HOST=172.18.0.1
+    DB_PORT=3306
+    DB_DATABASE=company-profile
+    DB_USERNAME=docker-user
+    DB_PASSWORD=docker-up
+    ```
 
 ## Step 4: Build and Start the Docker Containers
 1.  **Build and Start Containers**:
